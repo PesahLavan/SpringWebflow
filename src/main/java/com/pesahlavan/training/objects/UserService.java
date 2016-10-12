@@ -1,6 +1,7 @@
 package com.pesahlavan.training.objects;
 
 import org.springframework.stereotype.Component;
+import org.springframework.webflow.execution.RequestContext;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,13 @@ public class UserService {
 		userList.add(new User("user", "pass"));
 	}
 
-	public boolean userExist(User user) {
+	public boolean userExist(User user, RequestContext context) {
+
+//		System.out.println(context.getFlashScope().asMap());
+//		System.out.println(context.getRequestScope().asMap());
+//		System.out.println(context.getConversationScope().asMap());
+//		System.out.println(context.getViewScope().asMap());
+		System.out.println(context.getFlowScope().asMap());
 
 		if (userList.contains(user)) {
 			return true;

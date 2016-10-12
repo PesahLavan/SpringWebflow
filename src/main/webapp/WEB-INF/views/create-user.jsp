@@ -13,42 +13,67 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 
+
+
 </head>
 
 <body>
 
-<form:form method="POST" modelAttribute="user"
-		   class="box login">
+
+
+
+
+
+
+
+
+<form:form method="POST" modelAttribute="user" class="box login">
+
 
 	<fieldset class="boxBody">
 
+
+			<span style="float: right"> <a href="?lang=en"><spring:message
+					code="en" /></a> <a href="?lang=ru"><spring:message code="ru" /></a>
+			</span>
+
+
 		<form:label path="name">
-			Username
+			<spring:message code="username" />
 		</form:label>
 		<form:input path="name" />
 
+
+
+
+
+
 		<form:label path="password">
-			Password
+			<spring:message code="password" />
 		</form:label>
 
-		<form:password path="password"/>
 
+
+		<form:password path="password" />
 
 		<c:if test="${not empty message}">
 			<span style="float: right" class="error">${message}</span>
 		</c:if>
 
+
+
 	</fieldset>
 
-	<footer>
-
-
-		<a href="${flowExecutionUrl}&_eventId=createUser">Create user</a>
-
+	<footer> <input type="submit" class="btnLogin"
+					value="<spring:message code="cancel" />" name="_eventId_cancel">
 
 
 		<input type="submit" class="btnLogin"
-			   value="Login" name="_eventId_submit">
+			   value="<spring:message code="create-user" />" name="_eventId_submit">
+
+
+
+
 
 
 	</footer>

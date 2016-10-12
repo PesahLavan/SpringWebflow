@@ -16,17 +16,17 @@
 
 	<subflow-state id="createUserFlow" subflow="create-user">
 		<transition on="userCreated" to="loginForm">
-			<set name="flashScope.message" value="'User created!'"/>
+			<set name="flashScope.message" value="resourceBundle.user_created"/>
 		</transition>
 		<transition on="canceled" to="loginForm"/>
 	</subflow-state>
 
 	<action-state id="actionCheckLogin">
-		<evaluate expression="userService.userExist(user)"/>
+		<evaluate expression="userService.userExist(user, flowRequestContext)"/>
 
 		<transition on="yes" to="mainContent" />
 		<transition on="no" to="loginForm">
-			<set name="flashScope.message" value="'Check user!'"/>
+			<set name="flashScope.message" value="resourceBundle.check_user"/>
 		</transition>
 
 	</action-state>
