@@ -5,6 +5,6 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd" start-state="home">
 
 
-	<view-state id="home" view="/WEB-INF/views/home.jsp"/>
+	<view-state id="home" view="home"/>
 
 </flow>

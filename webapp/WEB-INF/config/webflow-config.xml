@@ -10,8 +10,19 @@
 
 	<flow:flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry" />
 
-	<flow:flow-registry id="mainFlowRegistry">
+	<flow:flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilder">
 		<flow:flow-location id="main" path="/WEB-INF/flows/main-flow.xml" />
 	</flow:flow-registry>
 
+	<flow:flow-builder-services id="flowBuilder"
+								view-factory-creator="flowViewResolver" />
+
+	<bean id="flowViewResolver"
+		  class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<property name="viewResolvers">
+			<list>
+				<ref bean="viewResolver" />
+			</list>
+		</property>
+	</bean>
 </beans>
