@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			 xmlns="http://www.springframework.org/schema/webflow-config"
-			 xmlns:beans="http://www.springframework.org/schema/beans"
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/webflow-config"
 			 xsi:schemaLocation="http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
@@ -17,11 +16,7 @@
 	</flow-registry>
 
 	<flow-builder-services id="flowBuilder"
-						   view-factory-creator="flowViewResolver" />
-
-
-
-
+						   view-factory-creator="flowViewResolver" validator="validator"/>
 
 	<beans:bean id="flowViewResolver"
 				class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
@@ -31,5 +26,8 @@
 			</beans:list>
 		</beans:property>
 	</beans:bean>
+
+	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
 
 </beans:beans>

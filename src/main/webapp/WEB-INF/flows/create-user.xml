@@ -5,17 +5,22 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 	  start-state="createUserForm">
 
+
+
 	<var name="user" class="com.pesahlavan.training.objects.User" />
+
+
 
 	<view-state id="createUserForm" view="create-user" model="user">
 		<transition on="submit" to="createUserAction" />
-		<transition on="cancel" to="canceled" />
+		<transition on="cancel" to="canceled" validate="false"/>
 	</view-state>
 
 	<action-state id="createUserAction">
 		<evaluate expression="userService.createUser(user, flowRequestContext)" />
 
-		<transition on="success" to="userCreated"/>
+		<transition on="success" to="userCreated" />
+
 		<transition on="exist" to="createUserForm">
 			<!-- <set name="flashScope.message" value="resourceBundle.user_exist"/> -->
 		</transition>
@@ -25,16 +30,16 @@
 		<!-- <set name="flashScope.message" value="resourceBundle.user_exist"/> -->
 		<!-- </transition> -->
 
-
 	</action-state>
 
-	<end-state id="userCreated"/>
+	<end-state id="userCreated" />
 
-	<end-state id="canceled"/>
+	<end-state id="canceled" />
 
 	<global-transitions>
-		<transition on-exception="java.lang.Exception" to="createUserForm"/>
+		<transition on-exception="java.lang.Exception" to="createUserForm" />
 	</global-transitions>
+
 
 
 </flow>

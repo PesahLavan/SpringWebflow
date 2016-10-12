@@ -1,35 +1,45 @@
 package com.pesahlavan.training.objects;
 
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+
+
 
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 7730377931313245319L;
 
-	
-	private String name;
+
+	@Size(min = 3, message = "{name.size.error}")
+	// Имя должно быть больше 6 знаков
+	private String username;
+
+	@Size(min = 3, max = 10, message = "{password.size.error}")
 	private String password;
-	
-	
+
+
+
 	public User() {
 	}
 
-	public User(String name, String password) {
-		this.name = name;
+	public User(String username) {
+		this.username = username;
+	}
+
+
+
+	public User(String username, String password) {
+		super();
+		this.username = username;
 		this.password = password;
 	}
 
-	public User(String name) {
-		this.name = name;
+	public String getUsername() {
+		return username;
 	}
 
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -44,7 +54,7 @@ public class User implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
@@ -58,10 +68,10 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (name == null) {
-			if (other.name != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!username.equals(other.username))
 			return false;
 		if (password == null) {
 			if (other.password != null)
@@ -70,4 +80,9 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
+
+
+
+
+
 }

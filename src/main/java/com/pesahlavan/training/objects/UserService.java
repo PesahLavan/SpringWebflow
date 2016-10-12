@@ -9,7 +9,7 @@ import java.util.ArrayList;
 @Component
 public class UserService {
 
-	private ArrayList<User> userList = new ArrayList<>();
+	private ArrayList<User> userList = new ArrayList<User>();
 
 	public UserService() {
 		userList.add(new User("user", "pass"));
@@ -17,10 +17,10 @@ public class UserService {
 
 	public boolean userExist(User user, RequestContext context) {
 
-//		System.out.println(context.getFlashScope().asMap());
-//		System.out.println(context.getRequestScope().asMap());
-//		System.out.println(context.getConversationScope().asMap());
-//		System.out.println(context.getViewScope().asMap());
+		// System.out.println(context.getFlashScope().asMap());
+		// System.out.println(context.getRequestScope().asMap());
+		// System.out.println(context.getConversationScope().asMap());
+		// System.out.println(context.getViewScope().asMap());
 		System.out.println(context.getFlowScope().asMap());
 
 		if (userList.contains(user)) {
@@ -31,8 +31,9 @@ public class UserService {
 		}
 	}
 
-	public String createUser(User user, RequestContext context) {
-		if (usernameExist(user.getName())){
+	public String createUser(User user, RequestContext context){
+
+		if (usernameExist(user.getUsername())){
 			context.getMessageContext().addMessage(new MessageBuilder().code("user_exist").build());
 			context.getMessageContext().addMessage(new MessageBuilder().code("enter_other_name").build());
 			return "exist";
@@ -44,17 +45,17 @@ public class UserService {
 		context.getMessageContext().addMessage(new MessageBuilder().code("enter").build());
 
 		return "success";
-		}
 
+	}
 
-	private boolean usernameExist(String username){
+	private boolean usernameExist(String username) {
 		for (User user : userList) {
-			if (user.getName().equals(username)){
+			if (user.getUsername().equals(username)) {
 				return true;
 			}
 		}
 
 		return false;
 	}
-}
 
+}

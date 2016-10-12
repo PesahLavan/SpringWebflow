@@ -10,7 +10,31 @@
 <html>
 <head>
 	<link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
+
+	<link type="text/css"
+		  href="<c:url value="/resources/dijit/themes/tundra/tundra.css" />"
+		  rel="stylesheet" >
+
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+	<script type="text/javascript"
+			src="<c:url value="/resources/dojo/dojo.js" />">
+
+	</script>
+
+	<script type="text/javascript"
+			src="<c:url value="/resources/spring/Spring.js" />">
+
+	</script>
+
+	<script type="text/javascript"
+			src="<c:url value="/resources/spring/Spring-Dojo.js" />">
+
+	</script>
+
+
 	<title>Insert title here</title>
 
 
@@ -31,10 +55,10 @@
 			</span>
 
 
-		<form:label path="name">
+		<form:label path="username">
 			<spring:message code="username" />
 		</form:label>
-		<form:input path="name" />
+		<form:input path="username" />
 
 
 		<form:label path="password">

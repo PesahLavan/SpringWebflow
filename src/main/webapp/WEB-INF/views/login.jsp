@@ -9,15 +9,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
+
+
+	<link type="text/css" href="<c:url value="/resources/css/home.css" />"
+		  rel="stylesheet">
+
+
+	<link type="text/css"
+		  href="<c:url value="/resources/dijit/themes/tundra/tundra.css" />"
+		  rel="stylesheet" >
+
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 
 
 
+	<script type="text/javascript"
+			src="<c:url value="/resources/dojo/dojo.js" />">
+
+	</script>
+
+	<script type="text/javascript"
+			src="<c:url value="/resources/spring/Spring.js" />">
+
+	</script>
+
+	<script type="text/javascript"
+			src="<c:url value="/resources/spring/Spring-Dojo.js" />">
+
+	</script>
+
 </head>
 
-<body>
+<body class="tundra">
 
 <form:form method="POST" modelAttribute="user" class="box login">
 
@@ -31,10 +56,11 @@
 
 
 
-		<form:label path="name">
+		<form:label path="username">
 			<spring:message code="username" />
 		</form:label>
-		<form:input path="name" />
+		<form:input path="username" id="username" />
+
 
 
 
@@ -45,8 +71,7 @@
 
 
 
-		<form:password path="password" />
-
+		<form:password path="password" id="password" />
 
 
 		<c:if
@@ -69,8 +94,8 @@
 
 	<footer> <a href="${flowExecutionUrl}&_eventId=createUser"><spring:message
 			code="create-user" /></a> <input type="submit" class="btnLogin"
-											 value="<spring:message code="login"/>" name="_eventId_submit">
-	</footer>
+											 id="login" value="<spring:message code="login"/>"
+											 name="_eventId_submit"> </footer>
 
 
 </form:form>
