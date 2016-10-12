@@ -19,17 +19,13 @@
 
 <body>
 
-
-
-
-
 <form:form method="POST" modelAttribute="user" class="box login">
 
 
 	<fieldset class="boxBody">
 
-			<span style="float: right"> <a href="?lang=en"><spring:message code="en" /></a> <a
-					href="?lang=ru"><spring:message code="ru" /></a>
+			<span style="float: right"> <a href="?lang=en"><spring:message
+					code="en" /></a> <a href="?lang=ru"><spring:message code="ru" /></a>
 			</span>
 
 
@@ -52,16 +48,29 @@
 		<form:password path="password" />
 
 
-		<c:if test="${not empty message}">
-			<span style="float: right" class="error">${message}</span>
+
+		<c:if
+				test="${not empty flowRequestContext.messageContext.allMessages}">
+			<ul class="red_messages">
+				<c:forEach items="${flowRequestContext.messageContext.allMessages}"
+						   var="message">
+
+					<li>${message.text}</li>
+
+				</c:forEach>
+
+			</ul>
 		</c:if>
+
 
 
 
 	</fieldset>
 
-	<footer> <a href="${flowExecutionUrl}&_eventId=createUser"><spring:message code="create-user" /></a> <input type="submit" class="btnLogin" value="<spring:message code="login"/>"
-																												name="_eventId_submit"> </footer>
+	<footer> <a href="${flowExecutionUrl}&_eventId=createUser"><spring:message
+			code="create-user" /></a> <input type="submit" class="btnLogin"
+											 value="<spring:message code="login"/>" name="_eventId_submit">
+	</footer>
 
 
 </form:form>

@@ -1,5 +1,6 @@
 package com.pesahlavan.training.objects;
 
+import org.springframework.binding.message.MessageBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.webflow.execution.RequestContext;
 
@@ -25,18 +26,26 @@ public class UserService {
 		if (userList.contains(user)) {
 			return true;
 		} else {
+			context.getMessageContext().addMessage(new MessageBuilder().code("check_user").build());
 			return false;
 		}
 	}
 
-	public String createUser(User user) {
-		if (usernameExist(user.getName())) {
+	public String createUser(User user, RequestContext context) {
+		if (usernameExist(user.getName())){
+			context.getMessageContext().addMessage(new MessageBuilder().code("user_exist").build());
+			context.getMessageContext().addMessage(new MessageBuilder().code("enter_other_name").build());
 			return "exist";
-		} else {
-			userList.add(user);
-			return "success";
 		}
-	}
+
+		userList.add(user);
+
+		context.getMessageContext().addMessage(new MessageBuilder().code("user_created").build());
+		context.getMessageContext().addMessage(new MessageBuilder().code("enter").build());
+
+		return "success";
+		}
+
 
 	private boolean usernameExist(String username){
 		for (User user : userList) {

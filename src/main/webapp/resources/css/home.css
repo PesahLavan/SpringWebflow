@@ -1,6 +1,10 @@
-/*  HTML5 ✰ Boilerplate g */
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video
-	{
+/*  HTML5 ✰ Boilerplate  */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd,
+	q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr,
+	th, td, article, aside, canvas, details, figcaption, figure, footer,
+	header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -9,20 +13,21 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 	vertical-align: baseline;
 }
 
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
-	{
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
 	display: block;
 }
 
-.error{
-	color:red;'
+.error {
+	color: red;
+	'
 }
 
-blockquote,q {
+blockquote, q {
 	quotes: none;
 }
 
-blockquote:before,blockquote:after,q:before,q:after {
+blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
 }
@@ -40,11 +45,20 @@ mark {
 	font-weight: bold;
 }
 
+ul.red_messages{
+	float:right;
+}
+
+ul.red_messages li {
+	list-style-type: none;
+	color:red;'
+}
+
 del {
 	text-decoration: line-through;
 }
 
-abbr[title],dfn[title] {
+abbr[title], dfn[title] {
 	border-bottom: 1px dotted;
 	cursor: help;
 }
@@ -63,7 +77,7 @@ hr {
 	padding: 0;
 }
 
-input,select {
+input, select {
 	vertical-align: middle;
 }
 
@@ -71,19 +85,19 @@ body {
 	font: 12px/18px Lucida Sans, sans-serif;
 }
 
-select,input,textarea,button {
+select, input, textarea, button {
 	font: 99% sans-serif;
 }
 
-pre,code,kbd,samp {
+pre, code, kbd, samp {
 	font-family: monospace, sans-serif;
 }
 
-a:hover,a:active,*:focus,input:focus,button:focus {
+a:hover, a:active, *:focus, input:focus, button:focus {
 	outline: none;
 }
 
-ul,ol {
+ul, ol {
 	margin-left: 2em;
 }
 
@@ -91,7 +105,7 @@ ol {
 	list-style-type: decimal;
 }
 
-nav ul,nav li {
+nav ul, nav li {
 	margin: 0;
 	list-style: none;
 	list-style-image: none;
@@ -101,7 +115,7 @@ small {
 	font-size: 85%;
 }
 
-strong,th {
+strong, th {
 	font-weight: bold;
 }
 
@@ -109,7 +123,7 @@ td {
 	vertical-align: top;
 }
 
-sub,sup {
+sub, sup {
 	font-size: 75%;
 	line-height: 0;
 	position: relative;
@@ -134,7 +148,7 @@ textarea {
 	overflow: auto;
 }
 
-.ie6 legend,.ie7 legend {
+.ie6 legend, .ie7 legend {
 	margin-left: -7px;
 }
 
@@ -154,27 +168,27 @@ input[type="checkbox"] {
 	vertical-align: text-bottom;
 }
 
-label,input[type="button"],input[type="submit"],input[type="image"],button
-	{
+label, input[type="button"], input[type="submit"], input[type="image"],
+	button {
 	cursor: pointer;
 }
 
-button,input,select,textarea {
+button, input, select, textarea {
 	margin: 0;
 }
 
-input:valid,textarea:valid {
+input:valid, textarea:valid {
 	
 }
 
-input:invalid,textarea:invalid {
+input:invalid, textarea:invalid {
 	border-radius: 1px;
 	-moz-box-shadow: 0px 0px 5px red;
 	-webkit-box-shadow: 0px 0px 5px red;
 	box-shadow: 0px 0px 5px red;
 }
 
-.no-boxshadow input:invalid,.no-boxshadow textarea:invalid {
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid {
 	background-color: #f0dddd;
 }
 
@@ -203,11 +217,11 @@ button {
 	-ms-interpolation-mode: bicubic;
 }
 
-body,select,input,textarea {
+body, select, input, textarea {
 	color: #444;
 }
 
-a,a:active,a:visited {
+a, a:active, a:visited {
 	color: #666;
 	text-decoration: none;
 }
@@ -241,7 +255,7 @@ a:hover {
 	width: 1px;
 }
 
-.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus {
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
 	clip: auto;
 	height: auto;
 	margin: 0;
@@ -254,7 +268,7 @@ a:hover {
 	visibility: hidden;
 }
 
-.clearfix:before,.clearfix:after {
+.clearfix:before, .clearfix:after {
 	content: "\0020";
 	display: block;
 	height: 0;
@@ -287,7 +301,7 @@ a:hover {
 		filter: none !important;
 		-ms-filter: none !important;
 	}
-	a,a:visited {
+	a, a:visited {
 		color: #444 !important;
 		text-decoration: underline;
 	}
@@ -297,27 +311,27 @@ a:hover {
 	abbr[title]:after {
 		content: " (" attr(title) ")";
 	}
-	.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after {
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: "";
 	}
-	pre,blockquote {
+	pre, blockquote {
 		border: 1px solid #999;
 		page-break-inside: avoid;
 	}
 	thead {
 		display: table-header-group;
 	}
-	tr,img {
+	tr, img {
 		page-break-inside: avoid;
 	}
 	@page {
 		margin: 0.5cm;
 	}
-	p,h2,h3 {
+	p, h2, h3 {
 		orphans: 3;
 		widows: 3;
 	}
-	h2,h3 {
+	h2, h3 {
 		page-break-after: avoid;
 	}
 }
@@ -395,7 +409,8 @@ body {
 	margin-right: 10px;
 }
 
-.box input[type=text],.box input[type=password],.txtField,.cjComboBox {
+.box input[type=text], .box input[type=password], .txtField, .cjComboBox
+	{
 	border: 6px solid #F7F9FA;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -411,8 +426,8 @@ body {
 	display: block;
 }
 
-.box input[type=text]:focus,.box input[type=password]:focus,.txtField:focus,.cjComboBox:focus
-	{
+.box input[type=text]:focus, .box input[type=password]:focus, .txtField:focus,
+	.cjComboBox:focus {
 	border: 6px solid #f0f7fc;
 	-moz-box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.04) inset, 0 0 1px #0d6db6
 		inset;
@@ -448,7 +463,7 @@ body {
 	color: #999;
 }
 
-.box a:hover,.box a:focus {
+.box a:hover, .box a:focus {
 	text-decoration: underline;
 }
 
@@ -486,10 +501,10 @@ body {
 .checkAdmin {
 	padding: 11px 16px;
 	margin-left: 12px;
-	margin-top:10px;
+	margin-top: 10px;
 }
 
-.btnLogin:hover,.btnLogin:focus,.btnLogin:active {
+.btnLogin:hover, .btnLogin:focus, .btnLogin:active {
 	background: #a1d8f0;
 	background: -moz-linear-gradient(top, #7acbed, #badff3);
 	background: -webkit-gradient(linear, left top, left bottom, from(#7acbed),

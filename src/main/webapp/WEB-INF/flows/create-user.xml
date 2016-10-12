@@ -13,12 +13,18 @@
 	</view-state>
 
 	<action-state id="createUserAction">
-		<evaluate expression="userService.createUser(user)" />
+		<evaluate expression="userService.createUser(user, flowRequestContext)" />
 
 		<transition on="success" to="userCreated"/>
 		<transition on="exist" to="createUserForm">
-			<set name="flashScope.message" value="resourceBundle.user_exist"/>
+			<!-- <set name="flashScope.message" value="resourceBundle.user_exist"/> -->
 		</transition>
+
+
+		<!-- <transition on="exist" to="createUserForm"> -->
+		<!-- <set name="flashScope.message" value="resourceBundle.user_exist"/> -->
+		<!-- </transition> -->
+
 
 	</action-state>
 
@@ -26,6 +32,9 @@
 
 	<end-state id="canceled"/>
 
+	<global-transitions>
+		<transition on-exception="java.lang.Exception" to="createUserForm"/>
+	</global-transitions>
 
 
 </flow>

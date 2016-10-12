@@ -20,13 +20,6 @@
 <body>
 
 
-
-
-
-
-
-
-
 <form:form method="POST" modelAttribute="user" class="box login">
 
 
@@ -44,10 +37,6 @@
 		<form:input path="name" />
 
 
-
-
-
-
 		<form:label path="password">
 			<spring:message code="password" />
 		</form:label>
@@ -56,8 +45,17 @@
 
 		<form:password path="password" />
 
-		<c:if test="${not empty message}">
-			<span style="float: right" class="error">${message}</span>
+		<c:if
+				test="${not empty flowRequestContext.messageContext.allMessages}">
+			<ul class="red_messages">
+				<c:forEach items="${flowRequestContext.messageContext.allMessages}"
+						   var="message">
+
+					<li>${message.text}</li>
+
+				</c:forEach>
+
+			</ul>
 		</c:if>
 
 
