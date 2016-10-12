@@ -10,7 +10,12 @@
 
 	<view-state id="loginForm" view="login" model="user">
 		<transition on="submit" to="actionCheckLogin" />
+		<transition on="createUser" to="createUserFlow" />
 	</view-state>
+
+	<subflow-state id="createUserFlow" subflow="create-user">
+		<transition on="end" to="loginForm" />
+	</subflow-state>
 
 	<action-state id="actionCheckLogin">
 		<evaluate expression="userService.checkUser(user)" />
@@ -21,5 +26,6 @@
 	</action-state>
 
 	<view-state id="mainContent" view="main" />
+
 
 </flow>

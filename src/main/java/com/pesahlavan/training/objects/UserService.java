@@ -1,17 +1,24 @@
 package com.pesahlavan.training.objects;
 
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+
 @Component
 public class UserService {
 
+	private ArrayList<User> userList = new ArrayList<>();
 	public String checkUser(User user) {
 
-		if (user.getName() != null && user.getName().equals("user") && user.getPassword() != null && user.getPassword().equals("pass")) {
-			return "success";
-		} else {
-			
-			return "failed";
+		for (User existingUser : userList) {
+			if (existingUser.equals(user)){
+				return "success";
+			}
 		}
-
+		return "failed";
+	}
+	public  void createUser(User user){
+		userList.add(user);
 	}
 }
+
