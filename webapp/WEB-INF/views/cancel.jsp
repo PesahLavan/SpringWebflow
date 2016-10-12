@@ -13,9 +13,9 @@
 <body>
 
 
-<h1>Hello!</h1>
+<h1>Canceled!</h1>
 
-<a href="${flowExecutionUrl}&_eventId=mainPage">Forward!</a>
+
 
 </body>
 </html>

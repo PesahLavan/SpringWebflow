@@ -13,9 +13,11 @@
 <body>
 
 
-<h1>Hello!</h1>
+<h1>Main</h1>
 
-<a href="${flowExecutionUrl}&_eventId=mainPage">Forward!</a>
+<a href="${flowExecutionUrl}&_eventId=homePage">Back!</a>
+<a href="${flowExecutionUrl}&_eventId=cancelPage">Cancel</a>
+
 
 </body>
 </html>
