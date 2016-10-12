@@ -11,9 +11,10 @@
 	<flow-executor id="loginFlowExecutor"
 				   flow-registry="loginFlowRegistry" />
 
-	<flow-registry id="loginFlowRegistry" flow-builder-services="flowBuilder">
-	<flow-location id="login" path="/WEB-INF/flows/login-flow.xml" />
-</flow-registry>
+	<flow-registry id="loginFlowRegistry"
+				   flow-builder-services="flowBuilder" base-path="/WEB-INF/flows">
+		<flow-location-pattern value="*.xml"/>
+	</flow-registry>
 
 	<flow-builder-services id="flowBuilder"
 						   view-factory-creator="flowViewResolver" />
