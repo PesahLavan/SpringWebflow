@@ -6,6 +6,7 @@
 	  start-state="loginForm">
 
 
+
 	<var name="user" class="com.pesahlavan.training.objects.User" />
 
 	<view-state id="loginForm" view="login" model="user">
@@ -14,20 +15,24 @@
 	</view-state>
 
 	<subflow-state id="createUserFlow" subflow="create-user">
-		<input name="user"/>
-		<transition on="userCreated" to="loginForm"/>
+		<transition on="userCreated" to="loginForm">
+			<set name="flashScope.message" value="'User created!'"/>
+		</transition>
 		<transition on="canceled" to="loginForm"/>
 	</subflow-state>
 
 	<action-state id="actionCheckLogin">
-		<evaluate expression="userService.checkUser(user)" />
+		<evaluate expression="userService.userExist(user)"/>
 
-		<transition on="success" to="mainContent" />
-		<transition on="failed" to="loginForm" />
+		<transition on="yes" to="mainContent" />
+		<transition on="no" to="loginForm">
+			<set name="flashScope.message" value="'Check user!'"/>
+		</transition>
 
 	</action-state>
 
 	<view-state id="mainContent" view="main" />
+
 
 
 </flow>

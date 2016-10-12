@@ -8,17 +8,37 @@ import java.util.ArrayList;
 public class UserService {
 
 	private ArrayList<User> userList = new ArrayList<>();
-	public String checkUser(User user) {
 
-		for (User existingUser : userList) {
-			if (existingUser.equals(user)){
-				return "success";
+	public UserService() {
+		userList.add(new User("user", "pass"));
+	}
+
+	public boolean userExist(User user) {
+
+		if (userList.contains(user)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String createUser(User user) {
+		if (usernameExist(user.getName())) {
+			return "exist";
+		} else {
+			userList.add(user);
+			return "success";
+		}
+	}
+
+	private boolean usernameExist(String username){
+		for (User user : userList) {
+			if (user.getName().equals(username)){
+				return true;
 			}
 		}
-		return "failed";
-	}
-	public  void createUser(User user){
-		userList.add(user);
+
+		return false;
 	}
 }
 

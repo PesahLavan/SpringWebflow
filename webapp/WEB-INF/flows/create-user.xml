@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flow xmlns="http://www.springframework.org/schema/webflow"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
-	start-state="createUserForm">
+	  start-state="createUserForm">
 
 
 
-	<input name="user" required="true"/>
+	<var name="user" class="com.pesahlavan.training.objects.User" />
+
+
 
 	<view-state id="createUserForm" view="create-user" model="user">
 		<transition on="submit" to="createUserAction" />
-		<transition on="cancel" to="end" />
+		<transition on="cancel" to="canceled" />
 	</view-state>
 
 	<action-state id="createUserAction">
 		<evaluate expression="userService.createUser(user)" />
-		<transition on="success" to="userCreated"/>
-		<transition on="exist" to="createUserForm" />
-		<transition to="end" />
+
+		<transition on="success" to="userCreated">
+
+		</transition>
+		<transition on="exist" to="createUserForm">
+			<set name="flashScope.message" value="'User exist!'"/>
+		</transition>
 
 	</action-state>
 
-	<end-state id="userCreated">
-		<output name="user" />
-	</end-state>
+	<end-state id="userCreated"/>
 
-	<end-state id="end" />
+	<end-state id="canceled"/>
 
 
 
